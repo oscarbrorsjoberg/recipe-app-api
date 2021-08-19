@@ -16,3 +16,16 @@ class ModelTest(TestCase):
         )
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
+
+
+    def test_new_user_email_normalzed(self):
+        '''
+            Test the email for a new user in normalized
+        '''
+        email = 'test@TERSTOR.com'
+        user = get_user_model().objects.create_user(
+            email=email,
+            password='Testpass123'
+        )
+        self.assertEqual(user.email, email.lower())
+

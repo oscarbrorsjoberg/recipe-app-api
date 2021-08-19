@@ -19,7 +19,24 @@ So after building the dockerfile we want to interact with it, using a docker com
 Running the different services.
 
 
+Docker compose runns application on the docker image, but
+
 see: docker-compose.yml
 
+
+## Travis CI https://www.travis-ci.com/
+
+Continues integrations service that can be linked to github
+
+ see .travis.yml
+
+## Flake8
+
+flake8 is a command-line utility for enforcing style consistency across Python projects
+
+## Djangos test framework
+
+
+## TDD
 
 

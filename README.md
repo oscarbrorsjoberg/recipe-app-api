@@ -96,4 +96,27 @@ The type of database needs to be set up in django settings file.
 - Not have to create data
 Do this programately with a mock model
 
+# Mange user endpoint
+
+Simply put, an endpoint is one end of a communication channel. When an API interacts with another system, the touchpoints of this communication are considered endpoints. For APIs, an endpoint can include a URL of a server or service. 
+
+Each endpoint is the location from which APIs can access the resources they need to carry out their function.
+
+- create users
+- change user data like 
+- update users 
+- create user auth token
+
+
+## Serializers
+
+What really is this??
+A model serializer post/get data from frontend from/to the abstract data class in backend.
+So takes python data and formulates some web response or web request.
+
+## Views
+
+Python function that takes a web request and returns a web response.
+
+
 

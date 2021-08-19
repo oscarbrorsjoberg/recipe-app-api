@@ -44,7 +44,6 @@ Write tests first, see that code solves the test.
 
 ## Using docker compose together with django
 
-
 Staring an app with name core
 
 ```
@@ -60,3 +59,36 @@ Runs tests and flake8 for all test files in django project
 ```
 sudo docker-compose run app sh -c "python manage.py test && flake8"
 ```
+## Django Documentation
+
+# Reverse util function
+
+Gets the url template tag of the given model/object
+This is useful so we call on objects rather than url names, since the latter can change.
+
+"admin:corer\_user\_changelist"
+1. Here admin is for the given superuser.
+2. core is the application 
+3. User changelist: path to custom template
+
+So for admin within coreapp we get the path to the custom template(url)?
+
+## Read admin documentation
+
+For this project we fiddled around somewhat overriding some of django admins
+core functions
+
+## Testing actual pages work
+ set up a testing client
+ reverse() to get url
+ check with status_code == 200
+
+# Postgres
+ something with database settings
+
+# Mocking (unittest.mock) Read
+- Never write tests that depends on external services
+- Not have to create data
+Do this programately with a mock model
+
+

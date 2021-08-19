@@ -84,7 +84,12 @@ core functions
  check with status_code == 200
 
 # Postgres
- something with database settings
+ 
+Postgresql is the an open database framework.
+There is a python module for this (see requirements)
+Postgres needs to be started up in the dockercontainer.
+Certain env variables needs to be set to communicate between the postgres image and the application.
+The type of database needs to be set up in django settings file.
 
 # Mocking (unittest.mock) Read
 - Never write tests that depends on external services

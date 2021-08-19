@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
                                     PermissionsMixin
 
-# Create your models here.
 
+# Create your models here.
 # Provides helper functions to create model (overrides BaseUserManager)
 class UserManager(BaseUserManager):
 
@@ -16,8 +16,17 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def create_superuser(self, email, password=None, **extra_fields):
+        ''' Creates and saves a new supruser '''
+        user = self.create_user(email, password)
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using=self._db)
 
-# This is our model user 
+        return user
+
+
+# This is our model user
 # (overrides/extends AbstractBaseUser and PermissionsMixin)
 # The vars are the fields in databaste
 class User(AbstractBaseUser, PermissionsMixin):

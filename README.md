@@ -36,7 +36,27 @@ flake8 is a command-line utility for enforcing style consistency across Python p
 
 ## Djangos test framework
 
+Use djangos test framework to build tests.
 
 ## TDD
 
+Write tests first, see that code solves the test.
 
+## Using docker compose together with django
+
+
+Staring an app with name core
+
+```
+docker-compose run app sh -c "python manage.py startapp core"
+```
+
+Migrates models in core module 
+```
+docker-compose run app sh -c "python manage.py makemigrations core"
+```
+
+Runs tests and flake8 for all test files in django project
+```
+sudo docker-compose run app sh -c "python manage.py test && flake8"
+```

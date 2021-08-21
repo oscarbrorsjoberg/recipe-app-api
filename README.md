@@ -118,5 +118,40 @@ So takes python data and formulates some web response or web request.
 
 Python function that takes a web request and returns a web response.
 
+## Create token endpoint
+
+
+
+## Questions: 
+
+Q1. What is a rest api?
+
+Rest stands for representational state transfer.
+CRUD (Create Read Update and Delete)
+These have to be linked to the http operations.
+
+Create = Post
+Read   = Get
+Update = Put
+Delete = Delete
+
+Request (Header, Operation, Endpoint, Params)
+
+Needs to handle this!
+
+Q2. What is a view in Django?
+
+Q3. What is an url in Django?
+
+Q4. What is a serializer in Django?
+
+Q5. What is authentication in Django?
+
+Q6. What is an endpoint in Django?
+An url where fonctionality is stored.
+
+Q7. What is a payload in web development?
+
+Q8. When to use django translations? 
 
 

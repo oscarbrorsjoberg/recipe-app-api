@@ -121,7 +121,6 @@ Python function that takes a web request and returns a web response.
 ## Create token endpoint
 
 
-
 ## Questions: 
 
 Q1. What is a rest api?

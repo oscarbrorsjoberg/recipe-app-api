@@ -153,4 +153,6 @@ Q7. What is a payload in web development?
 
 Q8. When to use django translations? 
 
+Q9. How can ModelViewSet from django rest\_framework be used? 
 
+Q10. How can ModelSerializer from django rest\_framework be used? 

@@ -81,7 +81,7 @@ core functions
 ## Testing actual pages work
  set up a testing client
  reverse() to get url
- check with status_code == 200
+ check with status\_code == 200
 
 # Postgres
  
@@ -139,20 +139,43 @@ Request (Header, Operation, Endpoint, Params)
 Needs to handle this!
 
 Q2. What is a view in Django?
+A view function, view for short, is a Python function that takes a web request
+and returns a web response.
 
 Q3. What is an url in Django?
+An url is nothing more than the address of a given unique resource on the web.
 
 Q4. What is a serializer in Django?
+A serializer can be seen as a converter object.
+It takes comples data such as models and queryset
+and turns them into simple python datatypes which then can
+be rendered to standard json or xml.
+Can also go other way arround.
 
-Q5. What is authentication in Django?
+Q5. How to use authentication in a Django project:
+https://docs.djangoproject.com/en/3.2/topics/auth/
 
 Q6. What is an endpoint in Django?
 An url where fonctionality is stored.
 
 Q7. What is a payload in web development?
+Payload is essentialy the important data. What are we interested in.
+Like position in a GIS system might be the payload and other important meta
+data is not the payload.
 
 Q8. When to use django translations? 
+Translations can be done on important text strings, more information :
+https://docs.djangoproject.com/en/3.2/topics/i18n/translation/
 
 Q9. How can ModelViewSet from django rest\_framework be used? 
+A viewset class allows you to combine logic for similar views so that they all
+can use it.
 
 Q10. How can ModelSerializer from django rest\_framework be used? 
+A ModelSerializer links the model to its serializer more neetly.
+It automaticaly creates a serializer with fields corresponding to the actual
+Models fields.
+
+Q11. What is mixing in the django rest\_framework?
+Mixin classes provide the actions that are used to provide basic view behavior.
+Like a help class to get certain behaviors for certain web requests.

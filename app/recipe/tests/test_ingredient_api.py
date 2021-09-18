@@ -23,6 +23,7 @@ class PublicIngredientApiTestCase(TestCase):
         res = self.client.get(INGREDIENT_URL)
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
+
 class PrivateIngredientApiTestCase(TestCase):
     ''' Test the private ingredients API'''
 
@@ -40,25 +41,25 @@ class PrivateIngredientApiTestCase(TestCase):
         Ingredient.objects.create(user=self.user, name='Kale')
         Ingredient.objects.create(user=self.user, name='Salt')
 
-        res = self.client.get(INGREDIENTS_URL)
+        res = self.client.get(INGREDIENT_URL)
 
         ingredients = Ingredient.objects.all().order_by('-name')
-        serializer = IngredientSerializer(Ingredients, many=True)
-        self.assertEqual(res.staus_code, status.HTTP_200_OK)
+        serializer = IngredientSerializer(ingredients, many=True)
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
 
     def test_ingredient_limited_to_user(self):
-        ''' Test that ingredients are limited for auth user'''
-        user = get_user_model().objects.create_user(
+        ''' Test that ingredients are limited for auth user are returned'''
+        user2 = get_user_model().objects.create_user(
             'other@testor.com',
             'testpass'
         )
+        Ingredient.objects.create(user=user2, name='Vinegar')
+        ingredient = Ingredient.objects.create(user=self.user, name='Tumeric')
 
+        res = self.client.get(INGREDIENT_URL)
 
-
-
-
-
-
-
-    )
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(res.data), 1)
+        self.assertEqual(res.data[0]['name'], ingredient.name)

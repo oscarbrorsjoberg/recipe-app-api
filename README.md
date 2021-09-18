@@ -118,7 +118,27 @@ So takes python data and formulates some web response or web request.
 
 Python function that takes a web request and returns a web response.
 
-## Create token endpoint
+## Create endpoint
+Communication (touch points).
+An api can include urls of a server of service.
+At each endpoint, the location, from which the API can access the resources
+they need to carry out its functions.
+
+## Request and response.
+API request from a web application or server, it will recieve a response.
+Where the request is sent is called an endpoint, where the recources lives.
+
+## The serializer view paradigm
+
+So for each entity of data we'll need a serializer
+that convertes the web data (queryset and model)
+and turns them into python data.
+
+The view function convertes request into response.
+
+
+
+
 
 
 ## Questions: 
@@ -129,17 +149,18 @@ Rest stands for representational state transfer.
 CRUD (Create Read Update and Delete)
 These have to be linked to the http operations.
 
-Create = Post
+CRUD || HTTP(S)
+Create = Post (to db)
 Read   = Get
-Update = Put
-Delete = Delete
+Update = Put (to db)
+Delete = Delete (to db)
 
 Request (Header, Operation, Endpoint, Params)
 
 Needs to handle this!
 
 Q2. What is a view in Django?
-A view function, view for short, is a Python function that takes a web request
+ view function, view for short, is a Python function that takes a web request
 and returns a web response.
 
 Q3. What is an url in Django?

@@ -33,12 +33,12 @@ class IngredientViewSet(viewsets.GenericViewSet,
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     queryset = Ingredient.objects.all()
-    serializer_class = serializers.TagSerializer
+    serializer_class = serializers.IngredientSerializer
 
     def get_queryset(self):
         ''' Return object for auth user only '''
         return self.queryset.filter(user=self.request.user).order_by('-name')
 
     def perform_create(self, serializer):
-        ''' Create a new ingredient'''
+        ''' Create a new ingredient '''
         serializer.save(user=self.request.user)

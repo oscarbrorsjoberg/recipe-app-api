@@ -200,3 +200,18 @@ Models fields.
 Q11. What is mixing in the django rest\_framework?
 Mixin classes provide the actions that are used to provide basic view behavior.
 Like a help class to get certain behaviors for certain web requests.
+
+Q12.  django.db contains a standard model how can this be used?
+The model will be the base class in your appointed database.
+Whats useful with the model is that there is a bunch of different fields that 
+can be assigned given the different field defined within the model.
+Please read more @:
+https://docs.djangoproject.com/en/2.1/topics/db/models/#module-django.db.models
+The fields can be studied here:
+https://docs.djangoproject.com/en/2.1/ref/models/fields/#django.db.models.ManyToManyField
+
+Q13. When should one migrate the database.
+When a new model is created migration is needed, creating the table in the
+database.
+https://docs.djangoproject.com/en/3.2/topics/migrations/
+

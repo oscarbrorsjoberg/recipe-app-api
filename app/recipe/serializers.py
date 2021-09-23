@@ -28,6 +28,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         queryset=Ingredient.objects.all()
     )
 
+    # Returns only the id of the tags associated to recipe
     tags = serializers.PrimaryKeyRelatedField(
         many=True,
         queryset=Tag.objects.all()
@@ -40,3 +41,9 @@ class RecipeSerializer(serializers.ModelSerializer):
                   'price', 'link')
 
         read_only_fields = ('id',)
+
+
+class RecipeDetailSerializer(RecipeSerializer):
+    ''' Serialize a recipe detial '''
+    ingredients = IngredientSerializer(many=True, read_only=True)
+    tags = TagSerializer(many=True, read_only=True)

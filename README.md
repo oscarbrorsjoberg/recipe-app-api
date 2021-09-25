@@ -215,3 +215,13 @@ When a new model is created migration is needed, creating the table in the
 database.
 https://docs.djangoproject.com/en/3.2/topics/migrations/
 
+Q14. What is the difference between makemigrations and migrate?
+Makemigrations will generate the sql commands for the apps included in
+settings.py. Create the tables for models etc.
+Migrate will apply the changes to the actual database file.
+Execute the sql commands in database file.
+
+Q15. Difference between patch and post in http?
+Patch will update only the fields that are included in the payload.
+Other fields will not be udpdated.
+Post will create a new object.

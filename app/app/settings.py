@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'core',
     'user',
     'recipe',
+    # 'django_nose',
 ]
+
+
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,20 +1,9 @@
 # Bknd REST API with Django
 
 ## Recipe app
-
 Hello from the other side!
 
-## Notes
-
-TDD -- test driven development
-
-Dockerfile -- for running app
-
-requirements -- for getting python packages up on the Dockerfile
-
-
-### Docker compose
-
+## Docker compose
 So after building the dockerfile we want to interact with it, using a docker compose file.
 Running the different services.
 
@@ -31,15 +20,12 @@ Continues integrations service that can be linked to github
  see .travis.yml
 
 ## Flake8
-
 flake8 is a command-line utility for enforcing style consistency across Python projects
 
 ## Djangos test framework
-
 Use djangos test framework to build tests.
 
 ## TDD
-
 Write tests first, see that code solves the test.
 
 ## Using docker compose together with django
@@ -62,7 +48,6 @@ sudo docker-compose run app sh -c "python manage.py test && flake8"
 ## Django Documentation
 
 # Reverse util function
-
 Gets the url template tag of the given model/object
 This is useful so we call on objects rather than url names, since the latter can change.
 
@@ -84,7 +69,6 @@ core functions
  check with status\_code == 200
 
 # Postgres
- 
 Postgresql is the an open database framework.
 There is a python module for this (see requirements)
 Postgres needs to be started up in the dockercontainer.
@@ -97,7 +81,6 @@ The type of database needs to be set up in django settings file.
 Do this programately with a mock model
 
 # Mange user endpoint
-
 Simply put, an endpoint is one end of a communication channel. When an API interacts with another system, the touchpoints of this communication are considered endpoints. For APIs, an endpoint can include a URL of a server or service. 
 
 Each endpoint is the location from which APIs can access the resources they need to carry out their function.
@@ -109,13 +92,10 @@ Each endpoint is the location from which APIs can access the resources they need
 
 
 ## Serializers
-
-What really is this??
 A model serializer post/get data from frontend from/to the abstract data class in backend.
 So takes python data and formulates some web response or web request.
 
 ## Views
-
 Python function that takes a web request and returns a web response.
 
 ## Create endpoint
@@ -135,10 +115,6 @@ that convertes the web data (queryset and model)
 and turns them into python data.
 
 The view function convertes request into response.
-
-
-
-
 
 
 ## Questions: 
@@ -225,3 +201,5 @@ Q15. Difference between patch and post in http?
 Patch will update only the fields that are included in the payload.
 Other fields will not be udpdated.
 Post will create a new object.
+
+Q16. What is a queryset in a view function?

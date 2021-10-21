@@ -203,3 +203,6 @@ Other fields will not be udpdated.
 Post will create a new object.
 
 Q16. What is a queryset in a view function?
+
+Q17. What is a aggregation and how to do it?
+

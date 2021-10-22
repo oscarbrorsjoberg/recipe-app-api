@@ -116,6 +116,18 @@ and turns them into python data.
 
 The view function convertes request into response.
 
+## Filtering the data
+
+Filtering according to certain fields in the model.
+
+
+
+smth? id
+
+Related objects, distinct set of result.
+
+
+
 
 ## Questions: 
 
@@ -203,6 +215,13 @@ Other fields will not be udpdated.
 Post will create a new object.
 
 Q16. What is a queryset in a view function?
+A view function makes it possible for us to inspect and manpiulate data at an
+endpoint. So say that we've got a model Person which a bunch of entries in the
+database. The set on which we can query is the entries of that model in the
+database.
+Django provides many functions on how to filter a queryset.
 
 Q17. What is a aggregation and how to do it?
+Aggregation is possible over the queryset with different functions to get the
+relevant data.
 

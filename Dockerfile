@@ -1,7 +1,7 @@
 FROM python:3.7-alpine
 MAINTAINER Oscar Sjoeberg
 
-ENV PYTHONBUFFERED 1
+ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /requirements.txt
 RUN apk add --update --no-cache postgresql-client jpeg-dev

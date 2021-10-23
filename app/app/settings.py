@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core',
     'user',
     'recipe',
+    'frontend.apps.FrontendConfig',
     # 'django_nose',
 ]
 

@@ -1,17 +1,30 @@
 # Bknd REST API with Django
 
 ## Recipe app
-Hello from the other side!
+
+This small application is based on a django course.
+After course finished the backend was basically done.
+To deepen my web knowledge I built a small frontend using 
+React JS.
+
+
+## Requirements
+[Requirements](requirements.txt)
+
+## Docker
+[Dockerfile](Dockerfile)
+
+A barebone build, based on the Python:3.7-apline image, to handle our application.
+
+Note! Use the set the environment variable PYTHONUNBUFFERED 1 in the Dockerfile!
+I got problems when activating the server if this was not set.
 
 ## Docker compose
-So after building the dockerfile we want to interact with it, using a docker compose file.
-Running the different services.
 
+[docker-compose](docker-compose.yml)
 
-Docker compose runns application on the docker image, but
-
-see: docker-compose.yml
-
+So after building the dockerfile we want to interact with it, using docker compose.
+Docker compose runns application on the docker image.
 
 ## Travis CI https://www.travis-ci.com/
 

@@ -133,13 +133,29 @@ The view function convertes request into response.
 
 Filtering according to certain fields in the model.
 
-
-
 smth? id
 
 Related objects, distinct set of result.
 
 
+# Frontend
+
+## React
+
+Using react for the first time. Following another youtube tutorial for building on the recipe application.
+
+Building with class based components.
+
+### Entry Point
+
+Using the component [App](app/frontend/src/components/App.js)
+
+#### Props
+
+Props can be used to modify the behavior of the components.
+#### State
+
+Using the component as a state machine, if something change we rerender.
 
 
 ## Questions: 

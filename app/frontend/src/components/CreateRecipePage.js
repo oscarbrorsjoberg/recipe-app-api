@@ -15,54 +15,79 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
 export default class CreateRecipePage extends Component {
-	defualtCost = 3;
-	defualtTime = 3;
+	defaultCost = 3;
+	defaultTime = 3;
+	defaultName = "digital curry";
 
 	recipeTagList = [
 		{
-			text: "My Tag",
+			number: 1,
 		}
 	];
 
 	recipeIngredientList = [
 		{
-			text: "My Ingredient",
+			number: 1,
 		}
 	];
 
 	constructor(props){
 		super(props);
+
 		this.state = {
-			title: "digital curry",
-			numberOfMinutes: this.defualtTime,
-			cost: this.defualtCost,
-			tags: {},
-			ingredients: {},
+			title: this.defaultName,
+			numberOfMinutes: this.defaultTime,
+			cost: this.defaultCost,
+			tags: this.recipeTagList,
+			ingredients: this.recipeIngredientList,
 		};
+
+		this.handleRecipeButtonPressed = this.handleRecipeButtonPressed.bind(this);
+		this.handleNumberOfMinutes = this.handleNumberOfMinutes.bind(this);
+		this.handleCost = this.handleCost.bind(this);
+		this.handleTitle = this.handleTitle.bind(this);
 	}
 
-	handleTags(e){
-		this.setState(
-			{
-				tags: e.target.value,
-			}
-		)
+	handleTitle(e){
+		this.setState({
+			title: e.target.value,
+		});
 	}
 
-	handleIngredients(e){
-		this.setState(
-			{
-				tags: e.target.value,
-			}
-		)
+	handleNumberOfMinutes(e){
+		this.setState({
+			numberOfMinutes: e.target.value,
+		});
+	}
+
+	handleCost(e){
+		this.setState({
+			cost: e.target.value,
+		});
+	}
+
+	handleRecipeButtonPressed() {
+		// console.log(this.state.title);
+		const requestOptions = {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				title: this.state.title,
+				time_minutes: this.state.numberOfMinutes,
+				price: this.state.cost,
+				tags: ["1"],
+				ingredients: ["1"],
+			})
+		};
+		fetch("/api/recipe/recipes/", requestOptions).then(
+			(response) => response.json()).then((data) => console.log(data));
 	}
 
 	render(){
-		// return <p> This is create a recipe page </p>;
 		return (
 			<Grid container spacing={1}>
 					<Grid item xs={12} align="center">
-						<Typography component="h4" variant="h4">
+						<Typography component={"span"} variant={"body2"}>
 							Create A Recipe
 						</Typography>
 				    </Grid>
@@ -71,9 +96,10 @@ export default class CreateRecipePage extends Component {
 						<TextField 
 								label="Recipe Title"
 								required={true}
+								onChange={this.handleTitle}
 						 />
 						<FormHelperText>
-							<div> Recipe Title</div>
+							<div> Recipe Title Yao</div>
 						</FormHelperText>
 					</FormControl>
 				</Grid>
@@ -83,10 +109,11 @@ export default class CreateRecipePage extends Component {
 								label="Time"
 								type="number"
 								required={true}
-								defaultValue={this.defualtTime}
+								defaultValue={this.defaultTime}
 								inputProps={{
 									min: 1,
 								}}
+								onChange={this.handleNumberOfMinutes}
 						 />
 						<FormHelperText>
 							<div> Number of minutes </div>
@@ -99,10 +126,11 @@ export default class CreateRecipePage extends Component {
 								label="Cost"
 								type="number"
 								required={true}
-								defaultValue={this.defualtCost}
+								defaultValue={this.defaultCost}
 								inputProps={{
 									min: 0,
 								}}
+								onChange={this.handleCost}
 						 />
 						<FormHelperText>
 							<div> Cost of recipe in dollars </div>
@@ -110,15 +138,8 @@ export default class CreateRecipePage extends Component {
 					</FormControl>
 				</Grid>
 				<Grid item xs={12} align="center">
-						<List align="center">
-								<ListItem align="center">
-									<ListItemText primary="hello"/>
-								</ListItem>
-						</List>
-				</Grid>
-				<Grid item xs={12} align="center">
-						<Button color="secondary" variant="contained">
-							Create A Room
+						<Button color="secondary" variant="contained" onClick={this.handleRecipeButtonPressed} >
+							Add Recipe
 						</Button>
 			  </Grid>
 				<Grid item xs={12} align="center">

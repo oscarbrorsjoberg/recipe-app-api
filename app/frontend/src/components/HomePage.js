@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import CreateRecipePage from "./CreateRecipePage"
 import RecipePage from "./RecipePage"
+import Recipe from "./Recipe"
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -15,9 +16,10 @@ export default class HomePage extends Component {
 	render(){
 		return (<Router>
 			<Switch>
-				<Route exact path='/' ><p>This is the homepage</p></Route>
+				<Route exact path='/' ><div>This can be HMPAGE</div></Route>
 				<Route path='/recipe' component={RecipePage}/>
 				<Route path='/create' component={CreateRecipePage}/>
+				<Route path='/recipes/:recipeId' component={Recipe}/>
 			</Switch>
 			</Router>);
 	}

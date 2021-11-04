@@ -13,6 +13,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 export default class CreateRecipePage extends Component {
 	defaultCost = 3;
@@ -46,6 +48,7 @@ export default class CreateRecipePage extends Component {
 		this.handleNumberOfMinutes = this.handleNumberOfMinutes.bind(this);
 		this.handleCost = this.handleCost.bind(this);
 		this.handleTitle = this.handleTitle.bind(this);
+		this.getTagsList = this.getTagsList.bind(this);
 	}
 
 	handleTitle(e){
@@ -66,6 +69,34 @@ export default class CreateRecipePage extends Component {
 		});
 	}
 
+
+
+	getTagsList() {
+		// console.log(this.state.title);
+		const requestOptions = {
+			method: 'GET',
+			headers: {'Content-Type': 'application/json'},
+		};
+		fetch("/api/recipe/tags/", requestOptions).then(
+			(response) => response.json()).then((data) => this.setState({tags: data}));
+	}
+
+	TagsListItems(){
+
+		// this.state.tags.forEach(function(item, index, array){
+		// 	console.log(item);
+		// })
+		//
+		return (
+			
+			<Grid item xs={12} align="center">
+				<ol>
+					{this.state.tags.map((tags) => <li key={tags["id"]}>{tags["name"]} </li>)}
+				</ol>
+			</Grid>
+		);
+	}
+
 	handleRecipeButtonPressed() {
 		// console.log(this.state.title);
 		const requestOptions = {
@@ -84,6 +115,9 @@ export default class CreateRecipePage extends Component {
 	}
 
 	render(){
+		this.getTagsList();
+		let userTags = this.state.tags.map((tags) => tags.name);
+		// console.log(this.state.tags);
 		return (
 			<Grid container spacing={1}>
 					<Grid item xs={12} align="center">
@@ -137,6 +171,12 @@ export default class CreateRecipePage extends Component {
 						</FormHelperText>
 					</FormControl>
 				</Grid>
+			{/*this.TagsListItems()*/}
+			{/* <Grid item xs={12} align="center">
+				 		<Button color="secondary" variant="contained" onClick={this.getTagsList} >
+				 			Get Tags
+				 		</Button>
+			   </Grid>*/}
 				<Grid item xs={12} align="center">
 						<Button color="secondary" variant="contained" onClick={this.handleRecipeButtonPressed} >
 							Add Recipe
@@ -147,7 +187,15 @@ export default class CreateRecipePage extends Component {
 							Back
 						</Button>
 			  </Grid>
-			</Grid>);
+				<Grid item xs={12} align="center">
+			<Select labelId="tags" multiple value={userTags}> 
+        {userTags.map((tag) => (
+					<MenuItem key={tag} value={tag}>
+					<ListItemText primary={tag} />
+					</MenuItem>
+				))}
+				</Select>
+			</Grid></Grid>);
 	}
 
 }

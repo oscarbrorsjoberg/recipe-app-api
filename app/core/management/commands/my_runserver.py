@@ -8,6 +8,7 @@ from django.contrib.staticfiles.management.commands.runserver import (
 
 from django.utils.autoreload import DJANGO_AUTORELOAD_ENV
 
+
 class Command(StaticFileRunserverCommand):
     """ This command removes the need for two terminal windows when running
     server """
@@ -29,14 +30,11 @@ class Command(StaticFileRunserverCommand):
         """ Run the server with webpack"""
         if os.environ.get(DJANGO_AUTORELOAD_ENV) != "true":
             self.stdout.write("Starting webpack build thread.")
-            # quiet = options["wp_quiet"]
             command = options["npm_command"]
             kwargs = {"shell": True}
-            # if quiet:
-            #     # if --quiet, suppress webpack command's output:
-            #     kwargs.update({"stdin": subprocess.PIPE, "stdout": subprocess.PIPE})
             wp_thread = threading.Thread(
-                target=subprocess.run, args=(command,), kwargs=kwargs
+                target=subprocess.run,
+                args=(command,), kwargs=kwargs
             )
             wp_thread.start()
         super(Command, self).run(**options)

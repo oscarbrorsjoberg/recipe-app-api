@@ -158,6 +158,9 @@ Props can be used to modify the behavior of the components.
 Using the component as a state machine, if something change we rerender.
 
 
+## Nginx
+
+
 ## Questions: 
 
 Q1. What is a rest api?
@@ -254,3 +257,12 @@ Q17. What is a aggregation and how to do it?
 Aggregation is possible over the queryset with different functions to get the
 relevant data.
 
+Q18. Static files what are they and how do I need to handle them?
+
+### Backend
+  1. Whitenoise
+  2. DRF
+  3. Settingsfile
+  4. collectstatic
+
+### Frontend

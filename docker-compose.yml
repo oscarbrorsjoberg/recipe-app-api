@@ -14,8 +14,7 @@ services:
     volumes:
       - ./app:/app
     command: > ## this command correpsonds to run
-      sh -c "python manage.py collectstatic &&
-             python manage.py wait_for_db && 
+      sh -c "python manage.py wait_for_db && 
              python manage.py migrate &&
              gunicorn app.wsgi --bind 0.0.0.0:8000 "
     environment:
@@ -34,21 +33,22 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=supersecretpassword
 
-  # frontend:
-  #   args:
-  #     API_URL: "http://localhost:8000"
-  #   command: npm run dev
-  #   container_name: frontend
-  #   build:
-  #     context: ./app/frontend/
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3000:3000"
-  #   stdin_open: true
-  #   volumes:
-  #     - build_folder:/frontend/build
-  #   depends_on:
-  #     - backend
+  frontend:
+    command: npm run dev
+    container_name: frontend
+    build:
+      context: ./app/frontend/
+      dockerfile: Dockerfile
+      args:
+        API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    volumes:
+      - build_folder:/frontend/templates/frontend
+      - ./app/frontend:/frontend
+    depends_on:
+      - backend
 
   nginx:
     image: nginx:latest
@@ -58,7 +58,7 @@ services:
       - ./webserver/nginx-proxy.conf:/etc/nginx/conf.d/deafult.conf:ro
       - build_folder:/var/www/frontend
     depends_on:
-      - backend
+      - frontend
 volumes:
-  build_folder: # frotend vontainer builds statics into build folder
+  build_folder: # frotend container builds statics into build folder
       # - frontend

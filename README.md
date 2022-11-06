@@ -264,5 +264,12 @@ Q18. Static files what are they and how do I need to handle them?
   2. DRF
   3. Settingsfile
   4. collectstatic
+  5. gunicorn
+  6. nginx
+  7. wsgi
 
 ### Frontend
+  1. React Routing
+  2. Static files 
+  3. Dynamic files
+  

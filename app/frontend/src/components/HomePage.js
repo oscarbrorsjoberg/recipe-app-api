@@ -16,7 +16,7 @@ export default class HomePage extends Component {
 	render(){
 		return (<Router>
 			<Switch>
-				<Route exact path='/' ><div>This can be HMPAGE</div></Route>
+				<Route exact path='/' ><div>This can be hmp</div></Route>
 				<Route path='/recipe' component={RecipePage}/>
 				<Route path='/create' component={CreateRecipePage}/>
 				<Route path='/recipes/:recipeId' component={Recipe}/>
